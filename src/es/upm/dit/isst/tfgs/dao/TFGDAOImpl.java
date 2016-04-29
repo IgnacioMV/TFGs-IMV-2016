@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+
 import es.upm.dit.isst.tfgs.model.TFG;
 
 public class TFGDAOImpl implements TFGDAO{
@@ -30,6 +31,8 @@ public class TFGDAOImpl implements TFGDAO{
 	public List<TFG> readTFGs(EntityManager em) {
 		Query q = em.createQuery("select t from TFG t");
 		List<TFG> res = q.getResultList();
+		if (res.size() == 0)
+			res = null;
 		return res;
 	}
 
