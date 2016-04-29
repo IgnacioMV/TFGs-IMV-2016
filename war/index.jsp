@@ -1,4 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!-- The HTML 4.01 Transitional DOCTYPE declaration-->
 <!-- above set at the top of the file will set     -->
 <!-- the browser's rendering engine into           -->
@@ -13,15 +15,11 @@
   </head>
 
   <body>
-    <h1>Hello App Engine!</h1>
-	
-    <table>
-      <tr>
-        <td colspan="2" style="font-weight:bold;">Available Servlets:</td>        
-      </tr>
-      <tr>
-        <td><a href="tfgs_imv_2016">TFGs_IMV_2016</a></td>
-      </tr>
-    </table>
+	<p>Sistema de gestión de TFGs</p>
+	<c:if test="${user != null}">
+		<c:out value="${user}" />
+	</c:if>
+	<p>Puedes pulsar el siguiente enlace para salir
+	<a href="<c:url value="${url}"/>"><c:out value="${urlLinktext}"/></a></p>
   </body>
 </html>
